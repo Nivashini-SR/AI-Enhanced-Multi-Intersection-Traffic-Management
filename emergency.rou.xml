@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-04-07 05:18:00 by Eclipse SUMO duarouter Version 1.18.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="network.net.xml"/>
+        <route-files value="emergency.rou.xml"/>
+    </input>
+
+    <output>
+        <output-file value="emergency.rou.xml"/>
+    </output>
+
+    <report>
+        <ignore-errors value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="ambulance" length="6.00" maxSpeed="40.00" guiShape="emergency" color="red" accel="4.0" decel="6.0" speedFactor="1.5" impatience="1.0"/>
+    <vehicle id="ambulance_1" type="ambulance" depart="60.00">
+        <route edges="206611203 27046352#4 27046346#0 27046346#1 27046346#2"/>
+    </vehicle>
+    <vehicle id="ambulance_2" type="ambulance" depart="150.00">
+        <route edges="206611203 27046352#4 27046346#0 27046346#1 27046346#2"/>
+    </vehicle>
+    <vehicle id="ambulance_3" type="ambulance" depart="210.00">
+        <route edges="206611203 27046352#4 27046346#0 27046346#1 27046346#2"/>
+    </vehicle>
+</routes>

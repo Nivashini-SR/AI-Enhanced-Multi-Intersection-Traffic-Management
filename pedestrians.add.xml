@@ -1,0 +1,35 @@
+<additional>
+
+    <vType id="pedestrian" shape="circle" vClass="pedestrian" color="0,1,1"/>
+
+    <!-- REAL CITY PEDESTRIANS -->
+
+    <person id="p1" depart="5">
+        <walk edges="12345678#0 12345678#1 98765432#0"/>
+    </person>
+
+    <person id="p2" depart="15">
+        <walk edges="98765432#0 56781234#0 56781234#1"/>
+    </person>
+
+    <person id="p3" depart="25">
+        <walk edges="34567890#0 34567890#1 87654321#0"/>
+    </person>
+
+    <person id="p4" depart="35">
+        <walk edges="87654321#0 43218765#0 43218765#1"/>
+    </person>
+
+    <person id="p5" depart="45">
+        <walk edges="56781234#1 12345678#0 34567890#0"/>
+    </person>
+    
+    <person id="p6" depart="50">
+        <walk edges="EDGE1 EDGE2 EDGE3"/>
+    </person>
+
+    <person id="p7" depart="60">
+        <walk edges="EDGE4 EDGE5 EDGE6"/>
+    </person>
+
+</additional>

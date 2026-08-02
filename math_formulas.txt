@@ -1,0 +1,47 @@
+# SUMO Traffic AI: Mathematical Formulas & Logic
+
+This document summarizes the mathematical logic used in the reinforcement learning environment and traffic control scripts.
+
+## 1. Reinforcement Learning: Reward Function (R)
+The reward function balances vehicle efficiency, pedestrian safety, and emergency priority.
+
+R = - (2 * ΣW_v) - (2 * ΣW_p) - (1 * ΣQ_v) + R_amb
+
+Where:
+- ΣW_v: Total vehicle waiting time (Step Halting Number) across all active junctions.
+- ΣW_p: Total pedestrian waiting time (Person Number) across all crossings.
+- ΣQ_v: Total vehicle queue length (Vehicle Number).
+- R_amb: Ambulance priority reward (see below).
+
+## 2. Emergency Vehicle Priority (Ambulance)
+The system applies a high-magnitude reward to Ensure ambulances move above a critical speed threshold.
+
+If speed(amb) > 5.0 m/s:
+    R_amb = +100
+Else:
+    R_amb = -500 (Heavy Penalty for blockage)
+
+## 3. Observation Space Normalization
+Inputs to the PPO neural network are scaled to [0, 1] for stable training gradients.
+
+State_Vector[i] = Raw_Value / 100.0
+Ambulance_Radar = min(1.0, distance_to_junction / 300.0)
+
+## 4. Distance Formula (Euclidean)
+Used for the Ambulance Radar to find the nearest emergency vehicle to a specific junction (Jx, Jy).
+
+Dist = sqrt((Jx - Ax)^2 + (Jy - Ay)^2)
+
+Where (Ax, Ay) is the coordinate of the ambulance vehicle.
+
+## 5. Traffic Light Phase Selection (Green Matching)
+To map discrete AI actions (0 or 1) to complex SUMO phases, the system calculates the "Difference Score."
+
+Selection = argmax(Σ [Phase_A[i] != Phase_B[i]]) 
+(Finding the most orthogonal/distinct green phase compared to the default state).
+
+## 6. Ambulance Physics Overrides
+- Speed Factor: 1.5 (Ambulance can exceed speed limit by 50%)
+- Impatience: 1.0 (Full merge priority)
+- Accel: 4.0 m/s^2
+- Decel: 6.0 m/s^2

@@ -1,0 +1,19 @@
+<viewsettings>
+    <scheme name="real world">
+        <polygons fill="1" />
+        <junctions drawFill="1" drawInFront="1" />
+        <colorScheme name="junction">
+            <entry color="200,200,200" name="junction"/>
+            <entry color="255,255,255" name="crossing"/>
+        </colorScheme>
+        <colorScheme name="street">
+            <entry color="255,255,255" name="crossing"/>
+        </colorScheme>
+        <colorScheme name="tls">
+            <entry color="0,255,0" name="green"/>
+            <entry color="255,0,0" name="red"/>
+        </colorScheme>
+    </scheme>
+    <viewport zoom="4000" x="0" y="0"/>
+    <delay value="100"/>
+</viewsettings>
