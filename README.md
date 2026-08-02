@@ -8,8 +8,6 @@
 ![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-PPO-yellow)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
----
-
 ## 📖 Overview
 
 Urban traffic congestion is one of the major challenges faced by modern cities. Conventional fixed-time traffic signals cannot adapt to changing traffic conditions, resulting in increased waiting time, long vehicle queues, and delayed emergency vehicle response.
@@ -25,8 +23,6 @@ The implementation is built using:
 - PyTorch
 - Python
 
----
-
 # 🎯 Objectives
 
 - Reduce average vehicle waiting time.
@@ -36,8 +32,6 @@ The implementation is built using:
 - Reduce pedestrian waiting time.
 - Increase overall traffic throughput.
 - Develop a scalable AI-based traffic signal controller.
-
----
 
 # ✨ Key Features
 
@@ -49,8 +43,6 @@ The implementation is built using:
 - 📊 Multi-objective reward function
 - ⚡ Parallel training using multiple SUMO environments
 - 📈 Performance comparison with Fixed-Time and Actuated controllers
-
----
 
 # 🏗️ System Architecture
 
@@ -85,8 +77,6 @@ Policy Update
       └──────────────► Repeat
 ```
 
----
-
 # 🧠 Reinforcement Learning Framework
 
 ## State Space
@@ -104,11 +94,7 @@ For each of the **114 junctions**, six normalized features are collected:
 
 Observation Dimension:
 
-```
 114 Junctions × 6 Features = 684
-```
-
----
 
 ## Action Space
 
@@ -121,15 +107,11 @@ Each junction has two possible actions.
 
 A **3-second yellow phase** is inserted before switching directions to ensure traffic safety.
 
----
-
 ## Reward Function
 
 The reinforcement learning agent maximizes the following reward:
 
-\[
-R=-2\sum W_v-2\sum W_p-\sum Q_v+R_{amb}
-\]
+R=−2⋅ΣWv−2⋅ΣWp−1⋅ΣQv+Ramb
 
 Where
 
@@ -143,8 +125,6 @@ Emergency reward:
 - +100 → Ambulance moving efficiently
 - -500 → Ambulance delayed
 
----
-
 # 🚑 Emergency Vehicle Priority
 
 Whenever an ambulance enters within **250 meters** of a traffic junction:
@@ -154,8 +134,6 @@ Whenever an ambulance enters within **250 meters** of a traffic junction:
 - Opposite traffic is stopped
 - Route clearing mechanism moves vehicles aside
 - Control returns to PPO after ambulance exits
-
----
 
 # 🚶 Pedestrian Integration
 
@@ -167,8 +145,6 @@ Benefits:
 - Reduced pedestrian delay
 - Improved safety
 - Fair traffic management
-
----
 
 # ⚙️ Technologies Used
 
@@ -183,8 +159,6 @@ Benefits:
 | Environment | Gymnasium |
 | Configuration | XML |
 | Parallel Training | multiprocessing |
-
----
 
 # 📂 Project Structure
 
@@ -202,9 +176,8 @@ sumo_project/
 │── screenshots/
 │── README.md
 │── requirements.txt
-```
 
----
+```
 
 # ⚙️ Installation
 
@@ -257,7 +230,6 @@ To test the trained model
 ```bash
 python test_rl_env.py
 ```
----
 
 # 📊 Experimental Results
 
@@ -275,8 +247,6 @@ The results demonstrate significant improvements in traffic efficiency, emergenc
 | Pedestrian Wait Time | 5.0 s | 2.1 s | **58.0% ↓** |
 | Throughput | 1150 veh/hr | 1420 veh/hr | **23.5% ↑** |
 
----
-
 ## PPO Training Progress
 
 | Training Steps | Vehicle Wait (s) | Queue Length | Ambulance Delay (s) | Pedestrian Wait (s) |
@@ -288,8 +258,6 @@ The results demonstrate significant improvements in traffic efficiency, emergenc
 
 The training converged after approximately **40,000 timesteps**, demonstrating stable policy learning and improved traffic management performance. :contentReference[oaicite:0]{index=0}
 
----
-
 # 📈 Performance Comparison
 
 ### Fixed-Time vs PPO
@@ -299,8 +267,6 @@ The training converged after approximately **40,000 timesteps**, demonstrating s
 - Ambulance delay reduced by **95.6%**
 - Pedestrian waiting reduced by **58.0%**
 - Traffic throughput increased by **23.5%**
-
----
 
 ### Actuated vs PPO
 
@@ -312,57 +278,31 @@ The training converged after approximately **40,000 timesteps**, demonstrating s
 | Pedestrian Wait | 4.5 s | 2.1 s | **53.3% ↓** |
 | Throughput | 1200 veh/hr | 1420 veh/hr | **18.3% ↑** |
 
----
-
 # 🖼️ Screenshots
 
 ## Simulation Environment
 
-> *(Insert your SUMO simulation screenshot here.)*
-
-![Simulation](screenshots/simulation.png)
-
----
+<img width="832" height="375" alt="image" src="https://github.com/user-attachments/assets/8eb7d709-ce5b-4197-8d4f-e9efc7623602" />
 
 ## Emergency Vehicle Priority
 
-> *(Insert the emergency vehicle prioritization screenshot from your report.)*
-
-![Emergency Priority](screenshots/emergency_vehicle.png)
-
----
+<img width="975" height="410" alt="image" src="https://github.com/user-attachments/assets/39ce3c7b-fdae-4eaa-ae22-d3ed5552bea5" />
 
 ## Pedestrian Crossing
 
-> *(Insert the pedestrian crossing screenshot from your report.)*
-
-![Pedestrian Crossing](screenshots/pedestrian_crossing.png)
-
----
+<img width="975" height="414" alt="image" src="https://github.com/user-attachments/assets/382db475-daac-4fa7-99cc-fc2fce46ba99" />
 
 ## Smooth Traffic Flow
 
-> *(Insert the smooth vehicle flow screenshot.)*
-
-![Traffic Flow](screenshots/smooth_flow.png)
-
----
+<img width="975" height="414" alt="image" src="https://github.com/user-attachments/assets/dd4e2689-4ecb-4881-96c2-6555455cd523" />
 
 ## PPO Training Graph
 
-> *(Insert the reward convergence graph.)*
-
-![Training Curve](screenshots/training_curve.png)
-
----
+<img width="1400" height="800" alt="image" src="https://github.com/user-attachments/assets/24ed6248-ce89-40d1-9d13-b7df07729d5c" />
 
 ## Performance Comparison Graph
 
-> *(Insert the Fixed-Time vs PPO graph.)*
-
-![Comparison](screenshots/comparison_graph.png)
-
----
+<img width="802" height="337" alt="image" src="https://github.com/user-attachments/assets/3b31e75a-8b45-473b-8e90-d0e809bd24b9" />
 
 # 🔬 Methodology
 
@@ -410,8 +350,6 @@ Repeat Until Convergence
 7. Update the PPO policy.
 8. Repeat until convergence.
 
----
-
 # 🚀 Future Scope
 
 The following enhancements can further improve the proposed system:
@@ -425,8 +363,6 @@ The following enhancements can further improve the proposed system:
 - Transfer learning for different city layouts.
 - Edge computing for low-latency traffic control.
 
----
-
 # 📚 References
 
 1. Schulman et al., *Proximal Policy Optimization Algorithms*, 2017.
@@ -439,8 +375,6 @@ The following enhancements can further improve the proposed system:
 
 > *The complete list of references is available in the project report.*
 
----
-
 # 👩‍💻 Author
 
 **Nivashini S R**
@@ -450,8 +384,6 @@ The following enhancements can further improve the proposed system:
 **PSG College of Technology**
 
 **GitHub:** https://github.com/Nivashini-SR
-
----
 
 # ⭐ Support
 
@@ -463,12 +395,8 @@ If you found this project useful:
 
 📢 Share your feedback
 
----
-
 ## 📄 License
 
 This project is intended for **academic and research purposes**.
-
----
 
 > **AI Enhanced Multi-Intersection Traffic Management** demonstrates how Deep Reinforcement Learning can transform conventional traffic signal systems into adaptive, intelligent, and emergency-aware traffic management solutions capable of reducing congestion, improving pedestrian safety, and enabling faster emergency response.
